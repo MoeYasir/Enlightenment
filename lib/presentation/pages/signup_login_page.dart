@@ -4,7 +4,8 @@ import 'package:health_providers/presentation/pages/signup_page.dart';
 import 'package:health_providers/presentation/widgets/button.dart';
 
 class LogInSignUp extends StatelessWidget {
-  const LogInSignUp({Key? key}) : super(key: key);
+  final String name;
+  const LogInSignUp({Key? key, required this.name}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

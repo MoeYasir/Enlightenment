@@ -10,6 +10,9 @@ class SignUpPage extends StatelessWidget {
   Widget build(BuildContext context) {
     TextEditingController emailController = TextEditingController();
     TextEditingController passwordController = TextEditingController();
+    // TextEditingController passwordController = TextEditingController();
+    // TextEditingController passwordController = TextEditingController();
+    // TextEditingController passwordController = TextEditingController();
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.blueAccent,
@@ -32,7 +35,7 @@ class SignUpPage extends StatelessWidget {
                     controller: emailController,
                     hintText: 'Enter your email'),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               Padding(
@@ -43,7 +46,7 @@ class SignUpPage extends StatelessWidget {
                     controller: passwordController,
                     hintText: 'Enter your password'),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               Padding(
@@ -54,7 +57,7 @@ class SignUpPage extends StatelessWidget {
                     controller: passwordController,
                     hintText: 'Enter your password'),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               Padding(
@@ -65,7 +68,7 @@ class SignUpPage extends StatelessWidget {
                     controller: passwordController,
                     hintText: 'Enter your password'),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               Padding(
@@ -76,7 +79,7 @@ class SignUpPage extends StatelessWidget {
                     controller: passwordController,
                     hintText: 'Enter your password'),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 15,
               ),
               Padding(

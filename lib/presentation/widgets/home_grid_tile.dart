@@ -16,12 +16,12 @@ class HomeGridTile extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [Icon(Icons.add_circle), Text("Hospital")],
+          children: [Icon(Icons.add_circle), Text(title)],
         ),
       ),
       onTap: () {
         Navigator.of(context).push(
-          MaterialPageRoute(builder: (_) => LogInSignUp(name: title)),
+          MaterialPageRoute(builder: (_) => LogInSignUp(title: title)),
         );
       },
     );

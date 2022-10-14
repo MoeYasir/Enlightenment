@@ -4,8 +4,8 @@ import 'package:health_providers/presentation/pages/signup_page.dart';
 import 'package:health_providers/presentation/widgets/button.dart';
 
 class LogInSignUp extends StatelessWidget {
-  final String name;
-  const LogInSignUp({Key? key, required this.name}) : super(key: key);
+  final String title;
+  const LogInSignUp({Key? key, required this.title}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -38,8 +38,12 @@ class LogInSignUp extends StatelessWidget {
             child: RoundedButton(
               btnText: 'Sign Up',
               onBtnPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => SignUpPage()));
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => SignUpPage(
+                              title: '',
+                            )));
               },
               ButtonColor: Colors.blue[100],
             ),

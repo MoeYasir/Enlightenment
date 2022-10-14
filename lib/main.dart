@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:health_providers/presentation/pages/home.dart';
+import 'package:health_providers/outside/login_screen/login_screen.dart';
 import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
+
+import 'outside/utils/konstant.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -25,18 +27,13 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Health Providers',
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
-        primarySwatch: Colors.blue,
+        scaffoldBackgroundColor: kBackgroundColor,
+        textTheme: Theme.of(context).textTheme.apply(
+              bodyColor: kPrimaryColor,
+              // fontFamily: 'Montserrat',
+            ),
       ),
-      home: HomePage(),
+      home: LoginScreen(),
     );
   }
 }

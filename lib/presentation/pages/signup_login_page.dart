@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:health_providers/presentation/pages/login_page.dart';
-import 'package:health_providers/presentation/pages/signup_page.dart';
+
 import 'package:health_providers/presentation/widgets/button.dart';
+import 'package:health_providers/secondTryDesign/login_screen.dart';
+import 'package:health_providers/secondTryDesign/signup.dart';
 
 class LogInSignUp extends StatelessWidget {
   final String title;
@@ -25,7 +26,7 @@ class LogInSignUp extends StatelessWidget {
               btnText: 'Log In',
               onBtnPressed: () {
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => LogInPage()));
+                    MaterialPageRoute(builder: (context) => LoginScreen3()));
               },
               ButtonColor: Color(0xff060D3F),
             ),
@@ -41,7 +42,7 @@ class LogInSignUp extends StatelessWidget {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => SignUpPage(
+                        builder: (context) => SignUp(
                               title: title,
                             )));
               },

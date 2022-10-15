@@ -9,7 +9,7 @@ Checking available hospitals, ICUs, medication, staff, and ambulances would save
 
 -You can make quick help for urgent needs and it will directly show you the nearest available hospital with ambulance service.
 
--It’s also straightforward to book appointments in the hospital and chose which specialist you wanna see.
+-It’s also straightforward to book appointments in the hospital and choose which specialist you wanna see.
 
 -Our priority is our patients so it will make sense to provide them with private ambulances due to the slow response of public ones.
 

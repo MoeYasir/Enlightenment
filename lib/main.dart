@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:health_providers/constants.dart';
 import 'package:health_providers/secondTryDesign/signup.dart';
 import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
-
-import 'outside/utils/konstant.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      // builder: EasyLoading.init(),
+      builder: EasyLoading.init(),
       title: 'Health Providers',
       theme: ThemeData(
         scaffoldBackgroundColor: Colors.white,

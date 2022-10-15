@@ -12,7 +12,6 @@ class Hospital {
     final user = ParseUser.createUser(username, password, email);
 
     var response = await user.signUp();
-
     if (response.success) {
       showSuccess();
     } else {

@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:health_providers/constants.dart';
-import 'package:health_providers/presentation/pages/information_compelte.dart';
-import 'package:health_providers/presentation/widgets/button.dart';
+import 'package:health_providers/presentation/pages/information_compeltetton.dart';
 import 'package:health_providers/presentation/widgets/text_field.dart';
 import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
 
@@ -23,7 +22,7 @@ class _DoctorInfoState extends State<DoctorInfo> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('General Informtion'),
+        title: const Text('General Information'),
         backgroundColor: kButtonColor1,
       ),
       body: SafeArea(
@@ -36,13 +35,13 @@ class _DoctorInfoState extends State<DoctorInfo> {
                 hintText: 'Enter your address',
                 pass: false,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 5,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 5,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 5,
               ),
               MyTextField(
@@ -50,7 +49,7 @@ class _DoctorInfoState extends State<DoctorInfo> {
                 hintText: 'Enter your main phone number',
                 pass: false,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 5,
               ),
               MyTextField(
@@ -58,15 +57,15 @@ class _DoctorInfoState extends State<DoctorInfo> {
                 hintText: 'Enter your website',
                 pass: false,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 5,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 15,
               ),
               GestureDetector(
                 child: Container(
-                  child: Text('Save'),
+                  child: const Text('Save'),
                 ),
                 onTap: uploadPharmacyInfo,
               )
@@ -85,7 +84,7 @@ class _DoctorInfoState extends State<DoctorInfo> {
     EasyLoading.show(status: 'Saving...', maskType: EasyLoadingMaskType.clear);
     await action.save();
     EasyLoading.showSuccess('Success');
-    Navigator.of(context)
-        .push(MaterialPageRoute(builder: (context) => InformationCompleted()));
+    Navigator.of(context).push(
+        MaterialPageRoute(builder: (context) => const InformationCompleted()));
   }
 }

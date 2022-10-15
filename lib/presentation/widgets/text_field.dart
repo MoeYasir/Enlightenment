@@ -32,6 +32,7 @@ class MyTextField extends StatelessWidget {
       padding: const EdgeInsets.all(8.0),
       child: TextFormField(
         enabled: enabled,
+
         initialValue: initialValue,
         maxLength: maxLength,
         // onTap: onTap!(),
@@ -42,7 +43,7 @@ class MyTextField extends StatelessWidget {
         decoration: InputDecoration(
             filled: true,
             suffixIcon: textFieldIcon,
-            fillColor: Colors.grey[300],
+            fillColor: Colors.white,
             hintText: hintText,
             hintStyle: Theme.of(context).textTheme.bodyText2,
             border: OutlineInputBorder(

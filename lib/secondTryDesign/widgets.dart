@@ -12,8 +12,8 @@ Widget inputField(
     child: SizedBox(
       height: 50,
       child: Material(
-        elevation: 8,
-        shadowColor: Colors.black87,
+        elevation: 3,
+        shadowColor: Colors.transparent,
         color: Colors.transparent,
         borderRadius: BorderRadius.circular(30),
         child: TextFormField(

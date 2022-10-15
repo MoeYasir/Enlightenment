@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:health_providers/presentation/pages/AmbulanceInfo.dart';
 import 'package:health_providers/presentation/pages/DoctorInfo.dart';
 import 'package:health_providers/presentation/pages/hospital_info.dart';
-import 'package:health_providers/presentation/pages/pharmacyInfo.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:health_providers/presentation/pages/pharmacyInfoences.dart';
 
 class PageChoice extends StatelessWidget {
   final String title;
@@ -19,13 +18,13 @@ class PageChoice extends StatelessWidget {
 
     switch (pageName) {
       case 'Hospital':
-        return HospitalInfo();
+        return const HospitalInfo();
       case 'Pharmacy':
-        return PharmacyInfo();
+        return const PharmacyInfo();
       case 'Ambulance':
-        return AmbulanceInfo();
+        return const AmbulanceInfo();
       case 'Doctor':
-        return DoctorInfo();
+        return const DoctorInfo();
     }
   }
 }

@@ -3,10 +3,8 @@ import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:health_providers/constants.dart';
 import 'package:health_providers/data/location.dart';
 import 'package:health_providers/presentation/pages/information_compelte.dart';
-import 'package:health_providers/presentation/widgets/button.dart';
 import 'package:health_providers/presentation/widgets/text_field.dart';
 import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class PharmacyInfo extends StatefulWidget {
   const PharmacyInfo({Key? key}) : super(key: key);
@@ -34,13 +32,13 @@ class _PharmacyInfoState extends State<PharmacyInfo> {
         automaticallyImplyLeading: false,
         title: Text(
           'General Informtion',
-          style: Theme.of(context).textTheme.bodyText1!.copyWith(fontSize: 20),
         ),
         backgroundColor: kButtonColor1,
       ),
       body: Form(
         key: _formKey,
         child: SafeArea(
+<<<<<<< Updated upstream
           child: SingleChildScrollView(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -115,46 +113,127 @@ class _PharmacyInfoState extends State<PharmacyInfo> {
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+=======
+          child: Container(
+            height: double.infinity,
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                colors: [
+                  Color(0x007CBFCF),
+                  Color(0xB316BFC4),
+                ],
+                begin: Alignment.bottomLeft,
+                end: Alignment.topRight,
+              ),
+            ),
+            child: SingleChildScrollView(
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+>>>>>>> Stashed changes
                   children: [
                     Text(
-                      '24 hours/day Available ?',
+                      'Hello,\nWe need some information to complete the registration',
                       style: Theme.of(context)
                           .textTheme
                           .bodyText2!
-                          .copyWith(fontSize: 20),
+                          .copyWith(fontSize: 20, fontWeight: FontWeight.bold),
                     ),
-                    Checkbox(
-                        value: is24open,
-                        onChanged: (value) {
-                          setState(() {
-                            is24open = value!;
-                            print(is24open);
-                          });
-                        }),
-                  ],
-                ),
-                SizedBox(
-                  height: 15,
-                ),
-                GestureDetector(
-                    child: Container(
-                      width: 200,
-                      height: 30,
-                      decoration: BoxDecoration(
-                        color: kButtonColor1,
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                      child: Center(
-                        child: Text(
-                          'Save',
+                    SizedBox(
+                      height: 15,
+                    ),
+                    MyTextField(
+                      validator: (text) {
+                        if (text == null || text.isEmpty) {
+                          return 'Can\'t be empty';
+                        }
+
+                        return null;
+                      },
+                      controller: pharmacyAdress,
+                      hintText: 'Enter your adress',
+                      pass: false,
+                    ),
+                    MyTextField(
+                      validator: (text) {
+                        if (text == null || text.isEmpty) {
+                          return 'Can\'t be empty';
+                        }
+
+                        return null;
+                      },
+                      controller: pharmacyLocation,
+                      hintText: 'Enter your pharmacy\'s location',
+                      pass: false,
+                    ),
+                    SizedBox(
+                      height: 5,
+                    ),
+                    MyTextField(
+                      validator: (text) {
+                        if (text == null || text.isEmpty) {
+                          return 'Can\'t be empty';
+                        }
+                        return null;
+                      },
+                      controller: pharmacyDrugs,
+                      hintText: 'Enter the number of drugs',
+                      pass: false,
+                    ),
+                    SizedBox(
+                      height: 5,
+                    ),
+                    SizedBox(
+                      height: 5,
+                    ),
+                    MyTextField(
+                      validator: (text) {
+                        if (text == null || text.isEmpty) {
+                          return 'Can\'t be empty';
+                        }
+
+                        if (text.length < 4) {
+                          return 'Too short';
+                        }
+                        return null;
+                      },
+                      controller: pharmacyPhoneNumber,
+                      hintText: 'Enter your hostpital\'s main phone number',
+                      pass: false,
+                    ),
+                    SizedBox(
+                      height: 5,
+                    ),
+                    MyTextField(
+                      controller: pharmacyWebsite,
+                      hintText: 'Enter your hostpital\'s website',
+                      pass: false,
+                    ),
+                    SizedBox(
+                      height: 5,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Text(
+                          '24 hours/day Available ?',
                           style: Theme.of(context)
                               .textTheme
-                              .bodyText1!
-                              .copyWith(
-                                  fontWeight: FontWeight.bold, fontSize: 15),
+                              .bodyText2!
+                              .copyWith(fontSize: 20),
                         ),
-                      ),
+                        Checkbox(
+                            value: is24open,
+                            onChanged: (value) {
+                              setState(() {
+                                is24open = value!;
+                                print(is24open);
+                              });
+                            }),
+                      ],
                     ),
+<<<<<<< Updated upstream
                     onTap: () {
                       if (_formKey.currentState!.validate()) {
                         apploadPharmacyInfo();
@@ -163,6 +242,44 @@ class _PharmacyInfoState extends State<PharmacyInfo> {
                       }
                     })
               ],
+=======
+                    SizedBox(
+                      height: 15,
+                    ),
+                    GestureDetector(
+                        child: Container(
+                          width: 200,
+                          height: 40,
+                          decoration: BoxDecoration(
+                            color: kButtonColor1,
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          child: Center(
+                            child: Text('Save',
+                                style:
+                                    // Theme.of(context)
+                                    //     .textTheme
+                                    //     .bodyText1!
+                                    //     .copyWith(
+                                    //         fontWeight: FontWeight.bold, fontSize: 15),
+                                    TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.bold)),
+                          ),
+                        ),
+                        onTap: () {
+                          if (_formKey.currentState!.validate()) {
+                            location = int.parse(pharmacyLocation.text);
+                            apploadPharmacyInfo();
+                          } else {
+                            return;
+                          }
+                        })
+                  ],
+                ),
+              ),
+>>>>>>> Stashed changes
             ),
           ),
         ),

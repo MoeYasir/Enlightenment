@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:health_providers/constants.dart';
-import 'package:health_providers/presentation/pages/home.dart';
-import 'package:health_providers/secondTryDesign/signup.dart';
-import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'package:health_providers/constants.dart';
+import 'package:health_providers/secondTryDesign/splash-screen.dart';
+import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 void main() async {
@@ -25,27 +23,19 @@ void main() async {
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       builder: EasyLoading.init(),
-      title: 'Health Providers',
+      title: 'zool care',
       theme: ThemeData(
-        appBarTheme: AppBarTheme(
-          backgroundColor: kButtonColor1,
-        ),
-        textTheme: TextTheme(
-          bodyText1: GoogleFonts.poppins().copyWith(color: Colors.white),
-          bodyText2: GoogleFonts.poppins().copyWith(color: Colors.black),
-
-          // bodyText2: GoogleFonts.poppins().copyWith(color: Color(0xffF8ECD1)),
-        ),
-
-        // fontFamily: 'Montserrat',
+        scaffoldBackgroundColor: Colors.white,
+        textTheme: Theme.of(context).textTheme.apply(
+              bodyColor: kPrimaryColor,
+            ),
       ),
-      home: HomePage(),
+      home: const SplashScreen(),
     );
   }
 }

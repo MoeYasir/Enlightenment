@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:health_providers/secondTryDesign/signup.dart';
 
-import '../../constants.dart';
-
 class HomeGridTile extends StatelessWidget {
-  final IconData icon;
+  final String icon;
   final String title;
 
   const HomeGridTile({Key? key, required this.icon, required this.title})
@@ -14,15 +12,26 @@ class HomeGridTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       child: Container(
+        height: 300,
+        width: 100,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
-          color: kButtonColor1,
+          color: Colors.white,
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [Icon(Icons.add_circle), Text(title)],
-                  ),
+          children: [
+            SizedBox(height: 70, width: 70, child: Image.asset(icon)),
+            SizedBox(
+              height: 10,
+            ),
+            Text(
+              title,
+              style: TextStyle(fontSize: 20, color: Color(0xB316BFC7)),
+            )
+          ],
+        ),
       ),
       onTap: () {
         Navigator.of(context).push(

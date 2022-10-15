@@ -11,6 +11,9 @@ class Ambulance {
   final BuildContext context;
   Ambulance(this.username, this.email, this.password, this.context);
   void doUserRegistration() async {
+    var test = ParseObject('_User')
+      ..objectId
+      ..set('type', 'ambulance');
     final user = ParseUser.createUser(username, password, email);
 
     var response = await user.signUp();

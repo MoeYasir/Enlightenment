@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:health_providers/constants.dart';
 import 'package:health_providers/presentation/pages/hospital_info.dart';
+import 'package:health_providers/presentation/pages/page_redirection.dart';
 import 'package:health_providers/secondTryDesign/widgets.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:health_providers/secondTryDesign/widgets.dart';
@@ -43,11 +44,18 @@ class _SignUpState extends State<SignUp> {
       final user = ParseUser.createUser(username, password, email);
 
       var response = await user.signUp();
-
+      String uid = user.objectId.toString();
+      SharedPreferences prefs = await SharedPreferences.getInstance();
       if (response.success) {
+        prefs.setString('userId', uid);
+
         showSuccess();
         Navigator.push(
-            context, MaterialPageRoute(builder: (context) => HospitalInfo()));
+            context,
+            MaterialPageRoute(
+                builder: (context) => PageChoice(
+                      title: widget.title,
+                    )));
       } else {
         showError(response.error!.message);
       }

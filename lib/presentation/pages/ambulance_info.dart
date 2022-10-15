@@ -5,6 +5,7 @@ import 'package:health_providers/presentation/pages/information_compelte.dart';
 import 'package:health_providers/presentation/widgets/button.dart';
 import 'package:health_providers/presentation/widgets/text_field.dart';
 import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class AmbulanceInfo extends StatefulWidget {
   const AmbulanceInfo({Key? key}) : super(key: key);
@@ -68,7 +69,9 @@ class _AmbulanceInfoState extends State<AmbulanceInfo> {
                 child: Container(
                   child: Text('Save'),
                 ),
-                onTap: uploadPharmacyInfo,
+                onTap: () {
+                  uploadPharmacyInfo;
+                },
               )
             ],
           ),
@@ -78,12 +81,18 @@ class _AmbulanceInfoState extends State<AmbulanceInfo> {
   }
 
   Future<dynamic> uploadPharmacyInfo() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.getString('userId');
+
     var action = ParseObject('AmbulanceDetails')
+      ..set('userId', prefs.getString('userId'))
       ..set('address', AmbulanceAdress.text.trim())
       ..set('phone_number', AmbulancePhoneNumber.text.trim())
       ..set('ambulanceWebsite', AmbulanceWebsite.text.trim());
+
     EasyLoading.show(status: 'Saving...', maskType: EasyLoadingMaskType.clear);
     await action.save();
+
     EasyLoading.showSuccess('Success');
     Navigator.of(context)
         .push(MaterialPageRoute(builder: (context) => InformationCompleted()));

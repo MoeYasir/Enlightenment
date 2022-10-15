@@ -25,14 +25,6 @@ class _DoctorInfoState extends State<DoctorInfo> {
   bool isAvailable = false;
 
   @override
-  void initState() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    var username = prefs.getString('name');
-    // TODO: implement initState
-    super.initState();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -146,11 +138,13 @@ class _DoctorInfoState extends State<DoctorInfo> {
 
   Location _location = Location();
 
-
   Future<dynamic> apploadDoctorInfo() async {
     final currentLocation = await _location.getCurrentPosition();
+    SharedPreferences prefs = await SharedPreferences.getInstance();
 
     var action = ParseObject('DoctorDetails')
+      ..objectId
+      ..set('doctorID', prefs.get('objectId'))
       ..set('adress', DoctorAdress.text.trim())
       ..set('phone_number', DoctorPhoneNumber.text.trim())
       ..set('isAvailable', isAvailable)

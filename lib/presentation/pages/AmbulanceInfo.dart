@@ -20,7 +20,9 @@ class _AmbulanceInfoState extends State<AmbulanceInfo> {
   TextEditingController AmbulanceAvailabilty = TextEditingController();
   TextEditingController AmbulancePhoneNumber = TextEditingController();
   TextEditingController AmbulanceWebsite = TextEditingController();
+  TextEditingController AmbulanceLocation = TextEditingController();
   bool isAvailable = false;
+  int? location;
 
   @override
   Widget build(BuildContext context) {
@@ -36,30 +38,6 @@ class _AmbulanceInfoState extends State<AmbulanceInfo> {
       body: Form(
         key: _formKey,
         child: SafeArea(
-<<<<<<< Updated upstream
-          child: SingleChildScrollView(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'Hello ,\nWe need some information to submit you with us. .',
-                  style: Theme.of(context)
-                      .textTheme
-                      .bodyText2!
-                      .copyWith(fontSize: 20, fontWeight: FontWeight.bold),
-                ),
-                SizedBox(
-                  height: 15,
-                ),
-                MyTextField(
-                  controller: AmbulanceAdress,
-                  hintText: 'Enter your address',
-                  pass: false,
-                  validator: (text) {
-                    if (text == null || text.isEmpty) {
-                      return 'Can\'t be empty';
-                    }
-=======
           child: Container(
             height: double.infinity,
             decoration: const BoxDecoration(
@@ -108,7 +86,6 @@ class _AmbulanceInfoState extends State<AmbulanceInfo> {
                         if (text == null || text.isEmpty) {
                           return 'Can\'t be empty';
                         }
->>>>>>> Stashed changes
 
                         return null;
                       },
@@ -186,40 +163,7 @@ class _AmbulanceInfoState extends State<AmbulanceInfo> {
                         ))
                   ],
                 ),
-<<<<<<< Updated upstream
-                SizedBox(
-                  height: 15,
-                ),
-                GestureDetector(
-                    onTap: () {
-                      if (_formKey.currentState!.validate()) {
-                        apploadAmbulanceInfo();
-                      } else {
-                        return;
-                      }
-                    },
-                    child: Container(
-                      width: 200,
-                      height: 30,
-                      decoration: BoxDecoration(
-                        color: kButtonColor1,
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                      child: Center(
-                        child: Text(
-                          'Save',
-                          style: Theme.of(context)
-                              .textTheme
-                              .bodyText1!
-                              .copyWith(
-                                  fontWeight: FontWeight.bold, fontSize: 15),
-                        ),
-                      ),
-                    ))
-              ],
-=======
               ),
->>>>>>> Stashed changes
             ),
           ),
         ),
@@ -228,7 +172,6 @@ class _AmbulanceInfoState extends State<AmbulanceInfo> {
   }
 
   Location _location = Location();
-
 
   Future<dynamic> apploadAmbulanceInfo() async {
     final currentLocation = await _location.getCurrentPosition();

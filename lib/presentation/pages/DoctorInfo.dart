@@ -14,257 +14,200 @@ class DoctorInfo extends StatefulWidget {
 }
 
 class _DoctorInfoState extends State<DoctorInfo> {
-  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-
-  TextEditingController DoctorAdress = TextEditingController();
-  TextEditingController DoctorAvailabilty = TextEditingController();
-  TextEditingController DoctorPhoneNumber = TextEditingController();
-  TextEditingController DoctorWebsite = TextEditingController();
-  bool isAvailable = false;
-<<<<<<< Updated upstream
-=======
+  TextEditingController doctorAdress = TextEditingController();
+  TextEditingController doctorDrugs = TextEditingController();
+  TextEditingController doctorPhoneNumber = TextEditingController();
+  TextEditingController doctorWebsite = TextEditingController();
+  TextEditingController doctorLocation = TextEditingController();
+  bool isAvialble = false;
   int? location;
-
-  // @override
-  // void initState() async {
-  //   SharedPreferences prefs = await SharedPreferences.getInstance();
-  //   var username = prefs.getString('name');
-  //   // TODO: implement initState
-  //   super.initState();
-  // }
->>>>>>> Stashed changes
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('General Information'),
-        backgroundColor: kButtonColor1,
-      ),
-      body: Form(
-        key: _formKey,
-        child: SafeArea(
-<<<<<<< Updated upstream
-          child: SingleChildScrollView(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'Hello ,\nWe need some information to submit you with us. .',
-                  style: Theme.of(context)
-                      .textTheme
-                      .bodyText2!
-                      .copyWith(fontSize: 20, fontWeight: FontWeight.bold),
-                ),
-                SizedBox(
-                  height: 15,
-                ),
-                MyTextField(
-                  controller: DoctorAdress,
-                  hintText: 'Enter your address',
-                  pass: false,
-                  validator: (text) {
-                    if (text == null || text.isEmpty) {
-                      return 'Can\'t be empty';
-                    }
-                    return null;
-                  },
-                ),
-                SizedBox(
-                  height: 5,
-                ),
-                MyTextField(
-                  controller: DoctorPhoneNumber,
-                  hintText: 'Enter your main phone number',
-                  pass: false,
-                  validator: (text) {
-                    if (text == null || text.isEmpty) {
-                      return 'Can\'t be empty';
-                    }
-=======
-          child: Container(
-            height: double.infinity,
-            decoration: const BoxDecoration(
-              gradient: LinearGradient(
-                colors: [
-                  Color(0x007CBFCF),
-                  Color(0xB316BFC4),
-                ],
-                begin: Alignment.bottomLeft,
-                end: Alignment.topRight,
-              ),
-            ),
-            child: SingleChildScrollView(
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      'Hello ,\nWe need some information to complete the registration ..',
-                      style: Theme.of(context)
-                          .textTheme
-                          .bodyText2!
-                          .copyWith(fontSize: 20, fontWeight: FontWeight.bold),
-                    ),
-                    const SizedBox(
-                      height: 15,
-                    ),
-                    MyTextField(
-                      controller: DoctorAdress,
-                      hintText: 'Enter your address',
-                      pass: false,
-                      validator: (text) {
-                        if (text == null || text.isEmpty) {
-                          return 'Can\'t be empty';
-                        }
-
-                        return null;
-                      },
-                    ),
-                    MyTextField(
-                      controller: DoctorLocation,
-                      hintText: 'Enter your location',
-                      pass: false,
-                      validator: (text) {
-                        if (text == null || text.isEmpty) {
-                          return 'Can\'t be empty';
-                        }
-
-                        return null;
-                      },
-                    ),
-                    const SizedBox(
-                      height: 5,
-                    ),
-                    MyTextField(
-                      controller: DoctorPhoneNumber,
-                      hintText: 'Enter your main phone number',
-                      pass: false,
-                      validator: (text) {
-                        if (text == null || text.isEmpty) {
-                          return 'Can\'t be empty';
-                        }
->>>>>>> Stashed changes
-
-                        return null;
-                      },
-                    ),
-                    const SizedBox(
-                      height: 5,
-                    ),
-                    MyTextField(
-                      controller: DoctorWebsite,
-                      hintText: 'Enter your website',
-                      pass: false,
-                    ),
-                    const SizedBox(
-                      height: 5,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        const Text(
-                          'Available ?',
-                          style: TextStyle(fontSize: 20, color: Colors.black),
-                        ),
-                        Checkbox(
-                            value: isAvailable,
-                            onChanged: (value) {
-                              setState(() {
-                                isAvailable = value!;
-                              });
-                            }),
-                      ],
-                    ),
-                    const SizedBox(
-                      height: 15,
-                    ),
-<<<<<<< Updated upstream
-                  ),
-                  onTap: () {
-                    if (_formKey.currentState!.validate()) {
-                      apploadDoctorInfo();
-                    } else {
-                      return;
-                    }
-                  },
-                )
+        appBar: AppBar(
+          automaticallyImplyLeading: false,
+          title: const Text(
+            'General Informtion',
+            // style: Theme.of(context).textTheme.bodyText1!.copyWith(fontSize: 20),
+          ),
+          backgroundColor: kButtonColor1.withOpacity(.9),
+        ),
+        body: SafeArea(
+            child: Container(
+          height: double.infinity,
+          decoration: const BoxDecoration(
+            gradient: const LinearGradient(
+              colors: [
+                Color(0x007CBFCF),
+                Color(0xB316BFC4),
               ],
-=======
-                    GestureDetector(
-                      child: Container(
-                        width: 200,
-                        height: 40,
-                        decoration: BoxDecoration(
-                          color: kButtonColor1,
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                        child: const Center(
-                          child: Text(
-                            'Save',
-                            style:
-                                // Theme.of(context)
-                                //     .textTheme
-                                //     .bodyText1!
-                                //     .copyWith(
-                                //         fontWeight: FontWeight.bold, fontSize: 15),
-                                TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.bold),
-                          ),
-                        ),
-                      ),
-                      onTap: () {
-                        if (_formKey.currentState!.validate()) {
-                          location = int.parse(DoctorLocation.text);
-                          apploadDoctorInfo();
-                        } else {
-                          return;
-                        }
-                      },
-                    )
-                  ],
-                ),
-              ),
->>>>>>> Stashed changes
+              begin: Alignment.bottomLeft,
+              end: Alignment.topRight,
             ),
           ),
-        ),
-      ),
-    );
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          'Hello ,\nWe need some information to complete the registration ..',
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodyText2!
+                              .copyWith(
+                                  fontSize: 20, fontWeight: FontWeight.bold),
+                        ),
+                        const SizedBox(
+                          height: 15,
+                        ),
+                        MyTextField(
+                          validator: (text) {
+                            if (text == null || text.isEmpty) {
+                              return 'Can\'t be empty';
+                            }
+
+                            return null;
+                          },
+                          controller: doctorAdress,
+                          hintText: 'Enter your address',
+                          pass: false,
+                        ),
+                        MyTextField(
+                          validator: (text) {
+                            if (text == null || text.isEmpty) {
+                              return 'Can\'t be empty';
+                            }
+
+                            return null;
+                          },
+                          controller: doctorLocation,
+                          hintText: 'Enter your location',
+                          pass: false,
+                        ),
+                        const SizedBox(
+                          height: 5,
+                        ),
+                        MyTextField(
+                          validator: (text) {
+                            if (text == null || text.isEmpty) {
+                              return 'Can\'t be empty';
+                            }
+
+                            if (text.length < 4) {
+                              return 'Too short';
+                            }
+                            return null;
+                          },
+                          controller: doctorPhoneNumber,
+                          hintText: 'Enter your main phone number',
+                          pass: false,
+                        ),
+                        const SizedBox(
+                          height: 5,
+                        ),
+                        MyTextField(
+                          controller: doctorWebsite,
+                          hintText: 'Enter your hostpital\'s website',
+                          pass: false,
+                        ),
+                        const SizedBox(
+                          height: 5,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              'Always available ?',
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodyText2!
+                                  .copyWith(fontSize: 20),
+                            ),
+                            Checkbox(
+                                value: isAvialble,
+                                onChanged: (value) {
+                                  setState(() {
+                                    isAvialble = value!;
+                                    print(isAvialble);
+                                  });
+                                }),
+                          ],
+                        ),
+                        const SizedBox(
+                          height: 15,
+                        ),
+                        GestureDetector(
+                            child: Container(
+                              width: 200,
+                              height: 40,
+                              decoration: BoxDecoration(
+                                color: kButtonColor1,
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                              child: const Center(
+                                child: const Text('Save',
+                                    style:
+                                        // Theme.of(context)
+                                        //     .textTheme
+                                        //     .bodyText1!
+                                        //     .copyWith(
+                                        //         fontWeight: FontWeight.bold, fontSize: 15),
+                                        const TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 20,
+                                            fontWeight: FontWeight.bold)),
+                              ),
+                            ),
+                            onTap: () {
+                              location = int.parse(doctorLocation.text);
+                              apploadDoctorInfo();
+                            })
+                      ]),
+                ),
+              ],
+            ),
+          ),
+        )));
   }
 
   Location _location = Location();
 
-  Future<dynamic> apploadDoctorInfo() async {
+  dynamic apploadDoctorInfo() async {
     final currentLocation = await _location.getCurrentPosition();
-    SharedPreferences prefs = await SharedPreferences.getInstance();
 
-    var action = ParseObject('DoctorDetails')
-<<<<<<< Updated upstream
-      ..objectId
-      ..set('doctorID', prefs.get('objectId'))
-      ..set('adress', DoctorAdress.text.trim())
-      ..set('phone_number', DoctorPhoneNumber.text.trim())
-      ..set('isAvailable', isAvailable)
-      ..set('DoctorWebsite', DoctorWebsite.text.trim())
+    var action = ParseObject('PharmacyDetails')
+      ..set('adress', doctorAdress.text.trim())
+      ..set('phone_number', doctorPhoneNumber.text.trim())
+      ..set('doctorWebsite', doctorWebsite.text)
       ..set('longitude', currentLocation.longitude)
-      ..set('latitude', currentLocation.latitude);
-    // ..set('hospitalStaff', DoctorAvailabilty);
-=======
-      ..set('address', DoctorAdress.text.trim())
-      ..set('phone_number', DoctorPhoneNumber.text.trim())
-      ..set('isAvailable', isAvailable)
-      ..set('location', location)
-      ..set('DoctorWebsite', DoctorWebsite.text.trim());
-    // ..set('hospitalStaff', DoctorAvailability);
->>>>>>> Stashed changes
+      ..set('latitude', currentLocation.latitude)
+      ..set('isAvailable', isAvialble);
+
     EasyLoading.show(status: 'Saving...', maskType: EasyLoadingMaskType.clear);
-    await action.save();
-    EasyLoading.showSuccess('Success');
-    Navigator.of(context)
-        .push(MaterialPageRoute(builder: (context) => const InformationCompleted()));
+    var res = await action.save();
+    if (res.success) {
+      EasyLoading.showSuccess('Success');
+      Navigator.of(context).pushReplacement(MaterialPageRoute(
+          builder: (context) => const InformationCompleted()));
+    } else {
+      EasyLoading.showError('network error try again');
+    }
   }
 }
+
+  // Future<dynamic> uploadDoctorInfo() async {
+  //   var action = ParseObject('PharmacyDetails')
+  //     ..set('adress', doctorAdress.text.trim())
+  //     ..set('phone_number', doctorPhoneNumber.text.trim())
+  //     ..set('doctorWebsite', doctorWebsite.text.trim());
+  //   EasyLoading.show(status: 'Saving...', maskType: EasyLoadingMaskType.clear);
+  //   await action.save();
+  //   EasyLoading.showSuccess('Success');
+  //   Navigator.of(context)
+  //       .push(MaterialPageRoute(builder: (context) => InformationCompleted()));
+  // }

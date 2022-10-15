@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:health_providers/presentation/pages/AmbulanceInfo.dart';
 import 'package:health_providers/presentation/pages/DoctorInfo.dart';
 import 'package:health_providers/presentation/pages/hospital_info.dart';
-import 'package:health_providers/presentation/pages/pharmacyInfoences.dart';
+import 'package:health_providers/presentation/pages/pharmacy_info.dart';
 
 class PageChoice extends StatelessWidget {
   final String title;

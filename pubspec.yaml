@@ -37,7 +37,8 @@ dependencies:
   parse_server_sdk_flutter: ^3.1.0
   flutter_lints: ^1.0.0
   ionicons: ^0.1.2
-  flutter_easyloading: ^3.0.3
+  flutter_easyloading: ^3.0.5
+
 
 
 dev_dependencies:

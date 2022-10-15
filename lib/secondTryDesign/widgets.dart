@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:health_providers/constants.dart';
 
-Widget inputField(String hint, TextEditingController controller,
-    IconData iconData, bool obscure) {
+Widget inputField(
+    String hint,
+    TextEditingController controller,
+    IconData iconData,
+    bool obscure,
+    final String? Function(String?)? validator) {
   return Padding(
     padding: const EdgeInsets.symmetric(horizontal: 36, vertical: 8),
     child: SizedBox(
@@ -12,7 +16,8 @@ Widget inputField(String hint, TextEditingController controller,
         shadowColor: Colors.black87,
         color: Colors.transparent,
         borderRadius: BorderRadius.circular(30),
-        child: TextField(
+        child: TextFormField(
+          validator: validator,
           controller: controller,
           obscureText: obscure,
           textAlignVertical: TextAlignVertical.bottom,

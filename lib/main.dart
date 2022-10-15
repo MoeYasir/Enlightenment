@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:health_providers/constants.dart';
+import 'package:health_providers/presentation/pages/home.dart';
 import 'package:health_providers/secondTryDesign/signup.dart';
 import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
@@ -29,14 +31,16 @@ class MyApp extends StatelessWidget {
       builder: EasyLoading.init(),
       title: 'Health Providers',
       theme: ThemeData(
-        scaffoldBackgroundColor: Colors.white,
-        textTheme: Theme.of(context).textTheme.apply(
-              bodyColor: kPrimaryColor,
+        textTheme: TextTheme(
+          bodyText1: GoogleFonts.poppins().copyWith(color: Colors.white),
+          bodyText2: GoogleFonts.poppins().copyWith(color: Colors.black),
 
-              // fontFamily: 'Montserrat',
-            ),
+          // bodyText2: GoogleFonts.poppins().copyWith(color: Color(0xffF8ECD1)),
+        ),
+
+        // fontFamily: 'Montserrat',
       ),
-      home: SignUp(),
+      home: HomePage(),
     );
   }
 }

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:health_providers/presentation/pages/signup_login_page.dart';
+import 'package:health_providers/secondTryDesign/signup.dart';
 
 class HomeGridTile extends StatelessWidget {
   final IconData icon;
@@ -21,7 +21,7 @@ class HomeGridTile extends StatelessWidget {
       ),
       onTap: () {
         Navigator.of(context).push(
-          MaterialPageRoute(builder: (_) => LogInSignUp(title: title)),
+          MaterialPageRoute(builder: (_) => SignUp(title: title)),
         );
       },
     );

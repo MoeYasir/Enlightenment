@@ -44,10 +44,7 @@ class MyTextField extends StatelessWidget {
             suffixIcon: textFieldIcon,
             fillColor: Colors.grey[300],
             hintText: hintText,
-            hintStyle: TextStyle(
-              fontFamily: "Poppins",
-              color: Colors.black,
-            ),
+            hintStyle: Theme.of(context).textTheme.bodyText2,
             border: OutlineInputBorder(
                 borderSide: BorderSide.none,
                 borderRadius: BorderRadius.circular(10))),

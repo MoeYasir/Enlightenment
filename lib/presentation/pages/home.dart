@@ -6,6 +6,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: Text("Home"),
       ),
       body: Center(
@@ -13,7 +14,7 @@ class HomePage extends StatelessWidget {
           height: MediaQuery.of(context).size.height * 0.65,
           child: GridView.count(
             crossAxisCount: 2,
-            crossAxisSpacing: 16,
+            crossAxisSpacing: 30,
             mainAxisSpacing: 16,
             padding: EdgeInsets.all(8),
             children: [

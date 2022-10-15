@@ -20,12 +20,17 @@ class _HospitalInfoState extends State<HospitalInfo> {
   TextEditingController HospitalLocation = TextEditingController();
   TextEditingController HospitalWebsite = TextEditingController();
   bool isERavailable = false;
+  int? location;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('General Informtion'),
+        automaticallyImplyLeading: false,
+        title: Text(
+          'General Informtion',
+          style: Theme.of(context).textTheme.bodyText1!.copyWith(fontSize: 20),
+        ),
         backgroundColor: kButtonColor1,
       ),
       body: SafeArea(
@@ -33,15 +38,50 @@ class _HospitalInfoState extends State<HospitalInfo> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              Text(
+                'Hello ,\nWe need some information to submit you with us. .',
+                style: Theme.of(context)
+                    .textTheme
+                    .bodyText2!
+                    .copyWith(fontSize: 20, fontWeight: FontWeight.bold),
+              ),
+              SizedBox(
+                height: 15,
+              ),
               MyTextField(
+                validator: (text) {
+                  if (text == null || text.isEmpty) {
+                    return 'Can\'t be empty';
+                  }
+
+                  return null;
+                },
                 controller: HospitalAdress,
                 hintText: 'Enter your adress',
+                pass: false,
+              ),
+              MyTextField(
+                validator: (text) {
+                  if (text == null || text.isEmpty) {
+                    return 'Can\'t be empty';
+                  }
+
+                  return null;
+                },
+                controller: HospitalLocation,
+                hintText: 'Enter your location',
                 pass: false,
               ),
               SizedBox(
                 height: 5,
               ),
               MyTextField(
+                validator: (text) {
+                  if (text == null || text.isEmpty) {
+                    return 'Can\'t be empty';
+                  }
+                  return null;
+                },
                 controller: HospitalStaff,
                 hintText: 'Enter the number of your staff',
                 pass: false,
@@ -53,6 +93,16 @@ class _HospitalInfoState extends State<HospitalInfo> {
                 height: 5,
               ),
               MyTextField(
+                validator: (text) {
+                  if (text == null || text.isEmpty) {
+                    return 'Can\'t be empty';
+                  }
+
+                  if (text.length < 4) {
+                    return 'Too short';
+                  }
+                  return null;
+                },
                 controller: HospitalPhoneNumber,
                 hintText: 'Enter your hostpital\'s main phone number',
                 pass: false,
@@ -73,7 +123,10 @@ class _HospitalInfoState extends State<HospitalInfo> {
                 children: [
                   Text(
                     'ER Available ?',
-                    style: TextStyle(fontSize: 20, color: Colors.black),
+                    style: Theme.of(context)
+                        .textTheme
+                        .bodyText2!
+                        .copyWith(fontSize: 20),
                   ),
                   Checkbox(
                       value: isERavailable,
@@ -89,11 +142,25 @@ class _HospitalInfoState extends State<HospitalInfo> {
                 height: 15,
               ),
               GestureDetector(
-                child: Container(
-                  child: Text('Save'),
-                ),
-                onTap: apploadHospitalInfo,
-              )
+                  child: Container(
+                    width: 200,
+                    height: 30,
+                    decoration: BoxDecoration(
+                      color: kButtonColor1,
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    child: Center(
+                      child: Text(
+                        'Save',
+                        style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                            fontWeight: FontWeight.bold, fontSize: 15),
+                      ),
+                    ),
+                  ),
+                  onTap: () {
+                    location = int.parse(HospitalLocation.text);
+                    apploadHospitalInfo();
+                  })
             ],
           ),
         ),
@@ -101,17 +168,22 @@ class _HospitalInfoState extends State<HospitalInfo> {
     );
   }
 
-  Future<dynamic> apploadHospitalInfo() async {
+  dynamic apploadHospitalInfo() async {
     var action = ParseObject('HospitalDetails')
       ..set('adress', HospitalAdress.text.trim())
       ..set('phone_number', HospitalPhoneNumber.text.trim())
       ..set('isERavailable', isERavailable)
-      ..set('hospitalWebsite', HospitalWebsite.text.trim())
+      ..set('location', location)
+      ..set('hospitalWebsite', HospitalWebsite.text)
       ..set('hospitalStaff', HospitalStaff.text.trim());
     EasyLoading.show(status: 'Saving...', maskType: EasyLoadingMaskType.clear);
-    await action.save();
-    EasyLoading.showSuccess('Success');
-    Navigator.of(context)
-        .push(MaterialPageRoute(builder: (context) => InformationCompleted()));
+    var res = await action.save();
+    if (res.success) {
+      EasyLoading.showSuccess('Success');
+      Navigator.of(context).pushReplacement(
+          MaterialPageRoute(builder: (context) => InformationCompleted()));
+    } else {
+      EasyLoading.showError('network error try again');
+    }
   }
 }

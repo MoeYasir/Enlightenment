@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:health_providers/constants.dart';
+import 'package:health_providers/data/location.dart';
 import 'package:health_providers/presentation/pages/information_compelte.dart';
 import 'package:health_providers/presentation/widgets/button.dart';
 import 'package:health_providers/presentation/widgets/text_field.dart';
@@ -168,14 +169,21 @@ class _HospitalInfoState extends State<HospitalInfo> {
     );
   }
 
+  Location _location = Location();
+
   dynamic apploadHospitalInfo() async {
+    final currentLocation = await _location.getCurrentPosition();
+
     var action = ParseObject('HospitalDetails')
       ..set('adress', HospitalAdress.text.trim())
       ..set('phone_number', HospitalPhoneNumber.text.trim())
       ..set('isERavailable', isERavailable)
       ..set('location', location)
       ..set('hospitalWebsite', HospitalWebsite.text)
-      ..set('hospitalStaff', HospitalStaff.text.trim());
+      ..set('hospitalStaff', HospitalStaff.text.trim())
+      ..set('longitude', currentLocation.longitude)
+      ..set('latitude', currentLocation.latitude);
+
     EasyLoading.show(status: 'Saving...', maskType: EasyLoadingMaskType.clear);
     var res = await action.save();
     if (res.success) {

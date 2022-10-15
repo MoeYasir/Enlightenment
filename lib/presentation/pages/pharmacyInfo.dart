@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:health_providers/constants.dart';
+import 'package:health_providers/data/location.dart';
 import 'package:health_providers/presentation/pages/information_compelte.dart';
 import 'package:health_providers/presentation/widgets/button.dart';
 import 'package:health_providers/presentation/widgets/text_field.dart';
@@ -199,13 +200,20 @@ class _PharmacyInfoState extends State<PharmacyInfo> {
     );
   }
 
+  Location _location = Location();
+
+
   Future<dynamic> apploadPharmacyInfo() async {
+    final currentLocation = await _location.getCurrentPosition();
+
     var action = ParseObject('PharmacyDetails')
       ..set('adress', pharmacyAdress.text.trim())
       ..set('phone_number', pharmacyPhoneNumber.text.trim())
       ..set('is24open', is24open)
       ..set('location', location)
       ..set('website', pharmacyWebsite.text.trim())
+      ..set('longitude', currentLocation.longitude)
+      ..set('latitude', currentLocation.latitude)
       ..set('pharmacyDrugs', pharmacyDrugs.text.trim());
     EasyLoading.show(status: 'Saving...', maskType: EasyLoadingMaskType.clear);
     var res = await action.save();

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:health_providers/constants.dart';
+import 'package:health_providers/data/location.dart';
 import 'package:health_providers/presentation/pages/information_compelte.dart';
 import 'package:health_providers/presentation/widgets/button.dart';
 import 'package:health_providers/presentation/widgets/text_field.dart';
@@ -159,13 +160,20 @@ class _DoctorInfoState extends State<DoctorInfo> {
     );
   }
 
+  Location _location = Location();
+
+
   Future<dynamic> apploadDoctorInfo() async {
+    final currentLocation = await _location.getCurrentPosition();
+
     var action = ParseObject('DoctorDetails')
       ..set('adress', DoctorAdress.text.trim())
       ..set('phone_number', DoctorPhoneNumber.text.trim())
       ..set('isAvailable', isAvailable)
       ..set('location', location)
-      ..set('DoctorWebsite', DoctorWebsite.text.trim());
+      ..set('DoctorWebsite', DoctorWebsite.text.trim())
+      ..set('longitude', currentLocation.longitude)
+      ..set('latitude', currentLocation.latitude);
     // ..set('hospitalStaff', DoctorAvailabilty);
     EasyLoading.show(status: 'Saving...', maskType: EasyLoadingMaskType.clear);
     await action.save();

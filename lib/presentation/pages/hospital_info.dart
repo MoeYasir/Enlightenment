@@ -108,9 +108,9 @@ class _HospitalInfoState extends State<HospitalInfo> {
       ..set('isERavailable', isERavailable)
       ..set('hospitalWebsite', HospitalWebsite.text.trim())
       ..set('hospitalStaff', HospitalStaff.text.trim());
-
+    EasyLoading.show(status: 'Saving...', maskType: EasyLoadingMaskType.clear);
     await action.save();
-    EasyLoading.dismiss();
+    EasyLoading.showSuccess('Success');
     Navigator.of(context)
         .push(MaterialPageRoute(builder: (context) => InformationCompleted()));
   }

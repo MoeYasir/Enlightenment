@@ -163,12 +163,12 @@ class _SignUpPageState extends State<SignUpPage> {
                   Padding(
                     padding: const EdgeInsets.only(top: 8.0, right: 8, left: 8),
                     child: MyTextField(
-                        enabled: false,
-                        initialValue: widget.title,
+                        // enabled: true,
+                        // initialValue: widget.title,
                         pass: false,
                         textFieldIcon: Icon(Icons.email),
                         inputType: TextInputType.emailAddress,
-                        // controller: nameController,
+                        controller: nameController,
                         hintText: 'Enter your organization name'),
                   ),
                   const SizedBox(

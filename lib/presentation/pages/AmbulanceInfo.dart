@@ -20,10 +20,8 @@ class _AmbulanceInfoState extends State<AmbulanceInfo> {
   TextEditingController AmbulanceAdress = TextEditingController();
   TextEditingController AmbulanceAvailabilty = TextEditingController();
   TextEditingController AmbulancePhoneNumber = TextEditingController();
-  TextEditingController AmbulanceLocation = TextEditingController();
   TextEditingController AmbulanceWebsite = TextEditingController();
   bool isAvailable = false;
-  int? location;
 
   @override
   Widget build(BuildContext context) {
@@ -55,19 +53,7 @@ class _AmbulanceInfoState extends State<AmbulanceInfo> {
                 ),
                 MyTextField(
                   controller: AmbulanceAdress,
-                  hintText: 'Enter your adress',
-                  pass: false,
-                  validator: (text) {
-                    if (text == null || text.isEmpty) {
-                      return 'Can\'t be empty';
-                    }
-
-                    return null;
-                  },
-                ),
-                MyTextField(
-                  controller: AmbulanceLocation,
-                  hintText: 'Enter your location',
+                  hintText: 'Enter your address',
                   pass: false,
                   validator: (text) {
                     if (text == null || text.isEmpty) {
@@ -125,7 +111,6 @@ class _AmbulanceInfoState extends State<AmbulanceInfo> {
                 GestureDetector(
                     onTap: () {
                       if (_formKey.currentState!.validate()) {
-                        location = int.parse(AmbulanceLocation.text);
                         apploadAmbulanceInfo();
                       } else {
                         return;
@@ -167,7 +152,6 @@ class _AmbulanceInfoState extends State<AmbulanceInfo> {
       ..set('adress', AmbulanceAdress.text.trim())
       ..set('phone_number', AmbulancePhoneNumber.text.trim())
       ..set('isAvailable', isAvailable)
-      ..set('location', location)
       ..set('ambulanceWebsite', AmbulanceWebsite.text.trim())
       ..set('longitude', currentLocation.longitude)
       ..set('latitude', currentLocation.latitude);

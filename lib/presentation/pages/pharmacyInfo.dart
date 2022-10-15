@@ -24,10 +24,8 @@ class _PharmacyInfoState extends State<PharmacyInfo> {
   TextEditingController pharmacyStaff = TextEditingController();
   TextEditingController pharmacyDrugs = TextEditingController();
   TextEditingController pharmacyPhoneNumber = TextEditingController();
-  TextEditingController pharmacyLocation = TextEditingController();
   TextEditingController pharmacyWebsite = TextEditingController();
   bool is24open = false;
-  int? location;
 
   @override
   Widget build(BuildContext context) {
@@ -66,19 +64,7 @@ class _PharmacyInfoState extends State<PharmacyInfo> {
                     return null;
                   },
                   controller: pharmacyAdress,
-                  hintText: 'Enter your adress',
-                  pass: false,
-                ),
-                MyTextField(
-                  validator: (text) {
-                    if (text == null || text.isEmpty) {
-                      return 'Can\'t be empty';
-                    }
-
-                    return null;
-                  },
-                  controller: pharmacyLocation,
-                  hintText: 'Enter your pharmacy\'s location',
+                  hintText: 'Enter your address',
                   pass: false,
                 ),
                 SizedBox(
@@ -171,7 +157,6 @@ class _PharmacyInfoState extends State<PharmacyInfo> {
                     ),
                     onTap: () {
                       if (_formKey.currentState!.validate()) {
-                        location = int.parse(pharmacyLocation.text);
                         apploadPharmacyInfo();
                       } else {
                         return;
@@ -195,7 +180,6 @@ class _PharmacyInfoState extends State<PharmacyInfo> {
       ..set('adress', pharmacyAdress.text.trim())
       ..set('phone_number', pharmacyPhoneNumber.text.trim())
       ..set('is24open', is24open)
-      ..set('location', location)
       ..set('website', pharmacyWebsite.text.trim())
       ..set('longitude', currentLocation.longitude)
       ..set('latitude', currentLocation.latitude)

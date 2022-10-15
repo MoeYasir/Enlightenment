@@ -18,10 +18,8 @@ class _HospitalInfoState extends State<HospitalInfo> {
   TextEditingController HospitalAdress = TextEditingController();
   TextEditingController HospitalStaff = TextEditingController();
   TextEditingController HospitalPhoneNumber = TextEditingController();
-  TextEditingController HospitalLocation = TextEditingController();
   TextEditingController HospitalWebsite = TextEditingController();
   bool isERavailable = false;
-  int? location;
 
   @override
   Widget build(BuildContext context) {
@@ -59,18 +57,6 @@ class _HospitalInfoState extends State<HospitalInfo> {
                 },
                 controller: HospitalAdress,
                 hintText: 'Enter your adress',
-                pass: false,
-              ),
-              MyTextField(
-                validator: (text) {
-                  if (text == null || text.isEmpty) {
-                    return 'Can\'t be empty';
-                  }
-
-                  return null;
-                },
-                controller: HospitalLocation,
-                hintText: 'Enter your location',
                 pass: false,
               ),
               SizedBox(
@@ -159,7 +145,6 @@ class _HospitalInfoState extends State<HospitalInfo> {
                     ),
                   ),
                   onTap: () {
-                    location = int.parse(HospitalLocation.text);
                     apploadHospitalInfo();
                   })
             ],
@@ -178,7 +163,6 @@ class _HospitalInfoState extends State<HospitalInfo> {
       ..set('adress', HospitalAdress.text.trim())
       ..set('phone_number', HospitalPhoneNumber.text.trim())
       ..set('isERavailable', isERavailable)
-      ..set('location', location)
       ..set('hospitalWebsite', HospitalWebsite.text)
       ..set('hospitalStaff', HospitalStaff.text.trim())
       ..set('longitude', currentLocation.longitude)

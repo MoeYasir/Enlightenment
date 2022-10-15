@@ -21,10 +21,8 @@ class _DoctorInfoState extends State<DoctorInfo> {
   TextEditingController DoctorAdress = TextEditingController();
   TextEditingController DoctorAvailabilty = TextEditingController();
   TextEditingController DoctorPhoneNumber = TextEditingController();
-  TextEditingController DoctorLocation = TextEditingController();
   TextEditingController DoctorWebsite = TextEditingController();
   bool isAvailable = false;
-  int? location;
 
   @override
   void initState() async {
@@ -60,25 +58,12 @@ class _DoctorInfoState extends State<DoctorInfo> {
                 ),
                 MyTextField(
                   controller: DoctorAdress,
-                  hintText: 'Enter your adress',
+                  hintText: 'Enter your address',
                   pass: false,
                   validator: (text) {
                     if (text == null || text.isEmpty) {
                       return 'Can\'t be empty';
                     }
-
-                    return null;
-                  },
-                ),
-                MyTextField(
-                  controller: DoctorLocation,
-                  hintText: 'Enter your location',
-                  pass: false,
-                  validator: (text) {
-                    if (text == null || text.isEmpty) {
-                      return 'Can\'t be empty';
-                    }
-
                     return null;
                   },
                 ),
@@ -145,7 +130,6 @@ class _DoctorInfoState extends State<DoctorInfo> {
                   ),
                   onTap: () {
                     if (_formKey.currentState!.validate()) {
-                      location = int.parse(DoctorLocation.text);
                       apploadDoctorInfo();
                     } else {
                       return;
@@ -170,7 +154,6 @@ class _DoctorInfoState extends State<DoctorInfo> {
       ..set('adress', DoctorAdress.text.trim())
       ..set('phone_number', DoctorPhoneNumber.text.trim())
       ..set('isAvailable', isAvailable)
-      ..set('location', location)
       ..set('DoctorWebsite', DoctorWebsite.text.trim())
       ..set('longitude', currentLocation.longitude)
       ..set('latitude', currentLocation.latitude);

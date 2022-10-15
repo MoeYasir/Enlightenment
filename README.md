@@ -1,16 +1,16 @@
-# health_providers
+Project 
 
-A new Flutter project.
 
-## Getting Started
+For decades we've been suffering from unjustified death because of the lack of medical attention and poor healthcare services. So it was a great idea to devote research to those crucial issues.
 
-This project is a starting point for a Flutter application.
+Checking available hospitals, ICUs, medication, staff, and ambulances would save people’s lives, time, effort, and even money. And that is exactly what we built, and even more.
 
-A few resources to get you started if this is your first Flutter project:
+-We provide our patients with the ability for checking the availability of all they need.
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+-You can make quick help for urgent needs and it will directly show you the nearest available hospital with ambulance service.
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+-It’s also straightforward to book appointments in the hospital and chose which specialist you wanna see.
+
+-Our priority is our patients so it will make sense to provide them with private ambulances due to the slow response of public ones.
+
+-To make it easy and effortlessy they can follow up with doctors without the need for physical meetings.

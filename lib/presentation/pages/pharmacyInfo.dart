@@ -15,21 +15,6 @@ class PharmacyInfo extends StatefulWidget {
 }
 
 class _PharmacyInfoState extends State<PharmacyInfo> {
-  String? namee;
-  dynamic getName() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    var username = prefs.getString('name');
-    namee = username;
-    return namee;
-  }
-
-  @override
-  void initState() {
-    getName();
-    // TODO: implement initState
-    super.initState();
-  }
-
   // TODO: implement initState
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
@@ -62,7 +47,7 @@ class _PharmacyInfoState extends State<PharmacyInfo> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  'Hello $namee ,\nWe need some information to submit you with us. .',
+                  'Hello,\nWe need some information to submit you with us. .',
                   style: Theme.of(context)
                       .textTheme
                       .bodyText2!

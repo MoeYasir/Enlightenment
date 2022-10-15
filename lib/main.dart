@@ -5,6 +5,7 @@ import 'package:health_providers/presentation/pages/home.dart';
 import 'package:health_providers/secondTryDesign/signup.dart';
 import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -14,6 +15,7 @@ void main() async {
   // final keyApplicationId = 'NYjW8dnCs0AoD7fcpVVdLKFLUTjeskMvOeMkknU6';
   // final keyClientKey = 'fDu4yPWVxm9z6LdUXbggrAVQcFuzYfzvMoa4AWht';
   // final keyParseServerUrl = 'https://parseapi.back4app.com';
+  SharedPreferences preferences = await SharedPreferences.getInstance();
 
   await Parse().initialize(keyApplicationId, keyParseServerUrl,
       clientKey: keyClientKey, debug: true);
@@ -31,6 +33,9 @@ class MyApp extends StatelessWidget {
       builder: EasyLoading.init(),
       title: 'Health Providers',
       theme: ThemeData(
+        appBarTheme: AppBarTheme(
+          backgroundColor: kButtonColor1,
+        ),
         textTheme: TextTheme(
           bodyText1: GoogleFonts.poppins().copyWith(color: Colors.white),
           bodyText2: GoogleFonts.poppins().copyWith(color: Colors.black),

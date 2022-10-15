@@ -9,7 +9,10 @@ import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
 
 class SignUpPage extends StatefulWidget {
   final String title;
-  const SignUpPage({Key? key, required this.title}) : super(key: key);
+  const SignUpPage({
+    Key? key,
+    required this.title,
+  }) : super(key: key);
 
   @override
   State<SignUpPage> createState() => _SignUpPageState();
@@ -160,11 +163,13 @@ class _SignUpPageState extends State<SignUpPage> {
                   Padding(
                     padding: const EdgeInsets.only(top: 8.0, right: 8, left: 8),
                     child: MyTextField(
+                        enabled: false,
+                        initialValue: widget.title,
                         pass: false,
                         textFieldIcon: Icon(Icons.email),
                         inputType: TextInputType.emailAddress,
-                        controller: nameController,
-                        hintText: 'Enter your ${widget.title} name'),
+                        // controller: nameController,
+                        hintText: 'Enter your organization name'),
                   ),
                   const SizedBox(
                     height: 10,
@@ -176,7 +181,7 @@ class _SignUpPageState extends State<SignUpPage> {
                         textFieldIcon: Icon(Icons.email),
                         inputType: TextInputType.emailAddress,
                         controller: emailController,
-                        hintText: 'Enter your ${widget.title} email'),
+                        hintText: 'Enter your email'),
                   ),
                   const SizedBox(
                     height: 10,

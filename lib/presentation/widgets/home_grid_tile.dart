@@ -26,4 +26,18 @@ class HomeGridTile extends StatelessWidget {
       },
     );
   }
+// getAppPages(String pageName) {
+//     switch (pageName) {
+//       case 'Hospital':
+//         return DashboardContents();
+//       case 'Pharmacy':
+//         return UserDetails();
+//       case 'Ambulance':
+//         return CarDetails();
+//       case 'Doctor':
+//         return TripsPage();
+
+//     }
+//   }
+
 }

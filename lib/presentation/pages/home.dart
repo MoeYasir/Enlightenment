@@ -18,9 +18,9 @@ class HomePage extends StatelessWidget {
             padding: EdgeInsets.all(8),
             children: [
               HomeGridTile(icon: Icons.add_circle, title: "Hospital"),
-              HomeGridTile(icon: Icons.add_circle, title: "Hospital"),
-              HomeGridTile(icon: Icons.add_circle, title: "Hospital"),
-              HomeGridTile(icon: Icons.add_circle, title: "Hospital")
+              HomeGridTile(icon: Icons.add_circle, title: "Pharmacy"),
+              HomeGridTile(icon: Icons.add_circle, title: "Ambulance"),
+              HomeGridTile(icon: Icons.add_circle, title: "Doctor")
             ],
           ),
         ),

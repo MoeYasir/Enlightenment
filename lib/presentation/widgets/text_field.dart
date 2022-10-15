@@ -1,23 +1,27 @@
 import 'package:flutter/material.dart';
 
 class MyTextField extends StatelessWidget {
-  final TextEditingController controller;
+  final TextEditingController? controller;
   final Widget? textFieldIcon;
   final String hintText;
+  final String? initialValue;
   final String? Function(String?)? validator;
   final TextInputType? inputType;
   final bool? pass;
+  final bool? enabled;
   final int? maxLength;
   // final Function? onTap;
 
   const MyTextField(
       {Key? key,
-      required this.controller,
+      this.controller,
       this.textFieldIcon,
       required this.hintText,
       this.validator,
       this.inputType,
       this.maxLength,
+      this.initialValue,
+      this.enabled,
       // this.onTap,
       this.pass})
       : super(key: key);
@@ -27,6 +31,8 @@ class MyTextField extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: TextFormField(
+        enabled: enabled,
+        initialValue: initialValue,
         maxLength: maxLength,
         // onTap: onTap!(),
         validator: validator,

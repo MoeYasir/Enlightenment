@@ -11,7 +11,7 @@ class LogInSignUp extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Health Providers'),
+        title: Text(title),
         backgroundColor: Colors.blueAccent,
         centerTitle: true,
       ),
@@ -42,7 +42,7 @@ class LogInSignUp extends StatelessWidget {
                     context,
                     MaterialPageRoute(
                         builder: (context) => SignUpPage(
-                              title: '',
+                              title: title,
                             )));
               },
               ButtonColor: Colors.blue[100],

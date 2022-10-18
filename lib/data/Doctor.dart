@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:health_providers/presentation/pages/doctor_info.dart';
+import 'package:health_providers/presentation/pages/DoctorInfo.dart';
 import 'package:health_providers/presentation/pages/hospital_info.dart';
 import 'package:health_providers/presentation/pages/pharmacy_info.dart';
 import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';

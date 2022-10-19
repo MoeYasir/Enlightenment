@@ -57,7 +57,7 @@ class _SplashScreenState extends State<SplashScreen> {
                       pause: const Duration(milliseconds: 400),
                       totalRepeatCount: 3,
                       animatedTexts: [
-                        ColorizeAnimatedText('Zool Care',
+                        ColorizeAnimatedText('Zoal Care',
                             textStyle: const TextStyle(
                                 fontSize: 50, fontWeight: FontWeight.bold),
                             colors: [
